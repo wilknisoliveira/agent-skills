@@ -9,8 +9,9 @@ Post-implementation changes. Every `/aipartner-fix` run appends an entry here.
   - Newest entry first.
   - One entry per fix request, even when it touches several files.
   - Record what the user reported in their words, not your interpretation of it.
-  - "Spec impact" is the important column: it says whether the agreed behaviour changed,
-    which is what keeps agent-artifacts/ from drifting away from reality.
+  - "Kind" is the important field. agent-artifacts/ is deliberately NOT updated after
+    implementation — a "Disagreement" entry is how the next reader learns that spec.md no
+    longer describes what shipped.
   - Write in the user's language.
   - Delete this comment block in the generated file.
 -->
@@ -30,8 +31,8 @@ or a scope decision the user disagrees with. One or two lines.]
 |---|---|
 | [exact path] | [what changed] |
 
-**Spec impact**: [None — implementation-only fix] OR [agent-artifacts/spec.md updated:
-FR-00X now says ...] OR [agent-artifacts/tasks.md updated: ...]
+**Kind**: [Defect — implementation did not match the spec] OR [Disagreement — spec.md FR-00X
+no longer describes the agreed behaviour]
 
 **Verify**: [command to run or thing to check]
 

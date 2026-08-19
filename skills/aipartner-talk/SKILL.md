@@ -26,36 +26,44 @@ the discussion.
 ## Hard rules
 
 - **Implement nothing.** No edits to project files, no new source files, no commands that
-  change anything. The only file you may write is the talk notes under `.aipartner/talks/`.
+  change anything. The only file you may write is the talk notes under `.aipartner/talks/`,
+  and only when the user asks for them.
 - **Implementation only on explicit request.** Code gets written when the user asks for it in
   unambiguous words, or by running `/aipartner-execute` — never otherwise. "Sounds good",
   "I agree", or the user approving a design direction is not authorisation to implement.
 - **If the user asks you to implement**, say plainly that implementation happens in
   `/aipartner-execute`, and that running `/aipartner-spec` first will produce a better
   result. Then offer to keep discussing. Do not implement "just this small bit".
-- **No plan, unless asked.** The deliverable of this command is the talk notes — never an
-  implementation plan, a plan document, a roadmap, or a task list.
+- **No plan, unless asked.** The deliverable of this command is the settled design, handed to
+  `/aipartner-spec` — never an implementation plan, a plan document, a roadmap, or a task list.
   - If the harness is in **plan mode**, that is not the user asking for a plan. Keep the
     conversation going exactly as described below. Do not turn the discussion into planning,
     and do not end the turn by presenting an implementation plan for approval.
   - Produce a plan only when the user asks for one in those words ("make a plan", "write the
     plan"). Then write it, and return to the conversation.
-  - If plan mode blocks writing the notes under `.aipartner/talks/`, say so in one line and
-    offer to leave plan mode. Do not substitute a plan file for the notes.
+  - If the user asked for the notes and plan mode blocks writing under `.aipartner/talks/`,
+    say so in one line and offer to leave plan mode. Do not substitute a plan file for the
+    notes.
 - **Never run a git write command.** Read-only git is fine for understanding the codebase.
 - Reading project code is encouraged. Grounding the discussion in what already exists is most
   of the value you add.
 
 ## Before you say anything
 
-1. Read every file in `.aipartner/memory/`.
-2. Read every file listed under **Required reading** there.
-3. If `.aipartner/memory/` does not exist, say so in one line and offer: run
-   `/aipartner-initial` first, or continue without it. Do not refuse to talk.
-4. Look in `.aipartner/talks/` for notes matching this topic. If you find one, read it and
-   open by offering to resume from where it stopped.
+This is a gate, not a suggestion. **Do not produce your first response until it is done.**
 
-Do not narrate this. The user does not need a list of files you opened.
+1. Read `.aipartner/memory/project-standards.md`, and every other file in `.aipartner/memory/`.
+2. Find its **Required reading** table. That table lists **file paths, not citations** — open
+   every single one of them. Reading `project-standards.md` alone does **not** satisfy this
+   step; it is a summary, and the listed files are the actual project guidelines.
+3. A file you already read earlier in this session counts as read. Do not re-read it.
+4. If a listed path is missing or has moved, say which one in a single line and carry on. A
+   stale table is not a blocker.
+5. If `.aipartner/memory/` does not exist, say so in one line and offer: run
+   `/aipartner-initial` first, or continue without it. Do not refuse to talk.
+
+Do not narrate the process. No checklist, no acknowledgement line, no list of files you opened
+— the harness already shows the reads. The only thing you report is a missing file.
 
 ---
 
@@ -121,21 +129,30 @@ When the shape is settled, summarise where things landed in a few lines and sugg
 `/aipartner-spec`. Do not oversell it — if there is still something genuinely undecided, say
 what it is instead.
 
+Nothing here is written down by default. If the shape is settled and the session is about to
+end, running `/aipartner-spec` now is what preserves the reasoning — say so plainly, once.
+
 ---
 
 ## The notes file
 
+**Notes are not written automatically.** The discussion lives in this session, and
+`/aipartner-spec` is what makes it permanent. Writing running notes after every exchange costs
+more than it returns.
+
+Write them when:
+
+- the user asks in unambiguous words — *"save this"*, *"write the notes"*; or
+- the discussion has run long enough that losing it would genuinely hurt, in which case you
+  **offer** once and wait for the answer. One offer per session. Never write unprompted.
+
+If notes for this topic already exist when the command starts, read them and open by offering
+to resume from where they stopped.
+
 Path: `.aipartner/talks/<slug>.md`, from `templates/talk-notes-template.md` — a path relative
 to **this skill's own directory**, not the project root. Create `.aipartner/talks/` if it does
-not exist yet; it is generated, never copied in by hand. The
-slug is 2-4 words in kebab-case describing the feature (`retry-policy`, `oauth-login`,
-`fix-payment-timeout`).
-
-This file is what lets `/aipartner-spec` work in a fresh session, days later, with none of
-this conversation in context. Treat it as the deliverable of this command.
-
-**Write it after each meaningful exchange** — not after every message, and not only at the
-end. A session that dies mid-discussion should lose nothing that mattered.
+not exist yet; it is generated, never copied in by hand. The slug is 2-4 words in kebab-case
+describing the feature (`retry-policy`, `oauth-login`, `fix-payment-timeout`).
 
 What goes in:
 
@@ -153,8 +170,6 @@ that was already made.
 
 Record conclusions, never dialogue. Never paste the conversation. The whole file should be
 readable in under a minute.
-
-Do not announce every write. Mention the notes file once, when you first create it.
 
 ---
 

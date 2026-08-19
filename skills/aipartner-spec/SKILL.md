@@ -57,12 +57,14 @@ Read, in this order:
 
 1. `.aipartner/memory/` — every file
 2. Everything under its **Required reading** list
-3. `.aipartner/talks/<slug>.md` for this feature
+3. `.aipartner/talks/<slug>.md` for this feature, **if it exists** — notes are written only
+   when the user asks for them, so most of the time there are none. Their absence is normal.
 4. The parts of the codebase the talk touched
 
-If there is no talk notes file and no discussion in context, say so and offer `/aipartner-talk`
-first. If the user wants to proceed anyway, do — but everything you write will be an
-assumption, and it must be labelled as one.
+Normally the discussion is in this session's context and that is the source you work from. Only
+when there is **neither** a notes file **nor** a discussion in context, say so and offer
+`/aipartner-talk` first. If the user wants to proceed anyway, do — but everything you write will
+be an assumption, and it must be labelled as one.
 
 ### 2. Resolve the feature folder
 
@@ -87,6 +89,9 @@ something the code shows.
 - Success criteria as `SC-001`, measurable and technology-agnostic — outcomes, not response
   times.
 - **Out of Scope** — what the talk ruled out. This is binding during execution.
+- **Rejected alternatives** — the options considered and the reason each lost. This is the only
+  place the reasoning survives once the session ends; without it a future session re-argues a
+  decision that was already made.
 - **Assumptions** — everything you filled in that the user did not confirm. An unlisted
   assumption is a silent invention.
 

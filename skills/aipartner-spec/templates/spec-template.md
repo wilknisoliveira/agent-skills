@@ -1,7 +1,10 @@
 # Feature Specification: [FEATURE NAME]
 
 **ID**: `[NNN-slug]` | **Created**: [DATE] | **Status**: Draft
-**Source**: discussion in `.aipartner/talks/[slug].md`
+**Source**: [`.aipartner/talks/[slug].md`, or: discussion in session]
+
+> This file records what was agreed at spec time. It is **not** updated after implementation —
+> post-implementation changes are logged in `../fixes.md`.
 
 <!--
   AUDIENCE: agents only. Be precise and complete — verbosity is fine here.
@@ -94,6 +97,16 @@
      /aipartner-execute — treat it as binding. -->
 
 - [excluded item]
+
+## Rejected alternatives
+
+<!-- Options that were considered and lost, one line each, with the reason. This is the only
+     record of the reasoning once the discussion is gone — it is what stops a future session
+     re-arguing a decision that was already settled. -->
+
+| Option | Why it lost |
+|---|---|
+| [alternative considered] | [the reason it was rejected] |
 
 ## Assumptions
 

@@ -28,7 +28,7 @@ in place, never duplicated.
 .aipartner/                       generated — you never create any of this by hand
 ├── README.md                      this file
 ├── memory/project-standards.md    how this project is built — read before every command
-└── talks/<slug>.md                running notes from /aipartner-talk
+└── talks/<slug>.md                only when you ask /aipartner-talk to save the discussion
 
 specs/NNN-slug/
 ├── plan.md                        for you. The only document meant to be read.
@@ -41,13 +41,19 @@ specs/NNN-slug/
 `plan.md` is written in your language and fits on one screen. The agent artifacts are in
 English and carry the detail.
 
-## Two things worth knowing
+## Three things worth knowing
 
-**The talk notes are the memory.** `/aipartner-talk` writes to `.aipartner/talks/<slug>.md`
-as you go, so you can close the session, come back tomorrow, and run `/aipartner-spec` with
-none of the conversation in context.
+**The discussion lives in the session; `/aipartner-spec` makes it permanent.** `/aipartner-talk`
+writes nothing by default — run `/aipartner-spec` before you close the session and the decisions,
+including what you rejected and why, land in `agent-artifacts/spec.md`. If a discussion has to
+survive a break before it is ready to spec, ask `/aipartner-talk` to save the notes and it will
+write `.aipartner/talks/<slug>.md`.
+
+**The spec is a point-in-time record.** `/aipartner-fix` never rewrites it. Corrections after
+implementation are appended to `specs/NNN-slug/fixes.md`, each one labelled as a defect or as a
+disagreement with the spec — so you can always see where the spec stopped matching reality.
 
 **No command ever writes to git.** No branch, no commit, no checkout. Committing is your call.
 
-**Commit `.aipartner/` with your project.** The standards and the talk notes are team
-knowledge — they are worth as much to the next person as they are to the next session.
+**Commit `.aipartner/` with your project.** The standards are team knowledge — they are worth as
+much to the next person as they are to the next session.
