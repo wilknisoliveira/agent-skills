@@ -53,23 +53,26 @@ skill's own directory**, not to the project root. Resolve them there.
 
 ### 1. Load context
 
-Read, in this order:
+Read root `AGENTS.md` and `CLAUDE.md` when present, their Required reading, applicable
+directory instructions, and the project guidelines and code relevant to the discussion.
+Already-read files count unless changed. Root `CLAUDE.md` is the standards location when it
+exists; otherwise use root `AGENTS.md`. Read both when both exist.
 
-1. `.aipartner/memory/` — every file
-2. Everything under its **Required reading** list
-3. `.aipartner/talks/<slug>.md` for this feature, **if it exists** — notes are written only
-   when the user asks for them, so most of the time there are none. Their absence is normal.
-4. The parts of the codebase the talk touched
+If existing project rules or documentation practices conflict with aipartner guidance,
+explain the specific conflict and ask how to resolve it before writing affected artifacts.
+Respect existing architecture and documentation conventions instead of silently replacing
+them. Do not create a separate standards or session-memory file.
 
-Normally the discussion is in this session's context and that is the source you work from. Only
-when there is **neither** a notes file **nor** a discussion in context, say so and offer
-`/aipartner-talk` first. If the user wants to proceed anyway, do — but everything you write will
-be an assumption, and it must be labelled as one.
+Use the discussion in session context as the source of decisions. If neither that context
+nor a sufficient explicit request is available, offer `/aipartner-talk` first. If the user
+wants to proceed anyway, distinguish their requirements from your labelled assumptions.
+Missing root standards do not block planning: use available guidance and code, and suggest
+`/aipartner-initial` when useful.
 
 ### 2. Resolve the feature folder
 
 **New feature**: list `specs/`. Take the highest `NNN-` prefix, add one, pad to three digits.
-No `specs/` directory yet → `001`. The slug is the one from the talk notes.
+No `specs/` directory yet → `001`. Derive a short kebab-case slug from the agreed feature name.
 
 **Updating an existing feature**: reuse its folder. Never create a second folder for the same
 feature.
@@ -103,15 +106,20 @@ From `templates/tasks-template.md`. This merges what spec-kit split across
 - **Technical Context** — the stack, from project standards plus whatever this feature adds.
 - **Approach** — how it gets built in 5-10 lines, so the task list reads as obvious rather
   than arbitrary.
-- **Standards Check** — how the feature complies with `.aipartner/memory/project-standards.md`.
+- **Standards Check** — how the feature complies with the selected root instruction file
+  and relevant project guidelines. Record actual source paths.
   Anything that breaks a documented standard goes in the deviations table with a
-  justification. A deviation you cannot justify is a design you should reconsider.
-- **Files Touched** — exact paths.
+  justification and the user's resolution of any conflict. A justification alone does not
+  override project guidance; unresolved conflicts block affected planning.
+- **Files Touched** — exact paths, including affected project guidelines.
 - **Tasks** — `- [ ] T001 [P] [US1] Description with exact file path`. Phased: Setup →
   Foundational → one phase per user story in priority order → Polish. Drop any phase with
   nothing in it; most existing projects need no Setup phase.
 - Include test tasks only when the project standards require tests for this kind of change,
   or the user asked. Do not add a test phase by reflex.
+
+Include tasks to inspect and update every affected project guideline (README, architecture,
+root instruction files, and other relevant documents), and validate those updates.
 
 Each task must be executable by an agent holding no other context.
 

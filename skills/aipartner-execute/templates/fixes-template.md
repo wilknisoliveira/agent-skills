@@ -2,7 +2,8 @@
 
 **ID**: `[NNN-slug]`
 
-Post-implementation changes. Every `/aipartner-fix` run appends an entry here.
+Post-implementation changes handled by `/aipartner-execute` or ordinary follow-up requests.
+Used only for features with an existing specification.
 
 <!--
   RULES:

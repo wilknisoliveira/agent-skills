@@ -1,10 +1,10 @@
 # Feature Specification: [FEATURE NAME]
 
 **ID**: `[NNN-slug]` | **Created**: [DATE] | **Status**: Draft
-**Source**: [`.aipartner/talks/[slug].md`, or: discussion in session]
+**Source**: [agreed discussion or explicit request in session]
 
 > This file records what was agreed at spec time. It is **not** updated after implementation —
-> post-implementation changes are logged in `../fixes.md`.
+> post-implementation corrections handled by execution or follow-up requests are logged in `../fixes.md`.
 
 <!--
   AUDIENCE: agents only. Be precise and complete — verbosity is fine here.

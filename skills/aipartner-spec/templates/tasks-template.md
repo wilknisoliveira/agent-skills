@@ -1,7 +1,7 @@
 # Implementation Plan & Tasks: [FEATURE NAME]
 
 **ID**: `[NNN-slug]` | **Created**: [DATE]
-**Spec**: `./spec.md` | **Standards**: `.aipartner/memory/project-standards.md`
+**Spec**: `./spec.md` | **Standards**: [actual root `CLAUDE.md` or `AGENTS.md` path and relevant guideline paths]
 
 <!--
   AUDIENCE: agents only. This file merges what spec-kit split across plan.md and tasks.md:
@@ -9,8 +9,8 @@
 
   HARD RULES:
   - Every task must be executable by an agent with no extra context. Name exact file paths.
-  - Every technical choice must match .aipartner/memory/project-standards.md, or be listed
-    as a deviation in ## Standards Check with a justification.
+  - Every technical choice must match the selected root instruction file and project guidelines, or be listed
+    as a deviation in ## Standards Check with a justification and user resolution of any conflict.
   - Do not introduce technology, patterns or scope that were not agreed in the talk.
   - Replace every sample task below. Do not ship the samples.
 -->
@@ -37,7 +37,7 @@ as obvious rather than arbitrary.]
 
 *Gate: must pass before execution starts.*
 
-| Standard (from project-standards.md) | How this feature complies |
+| Standard (with source guideline path) | How this feature complies |
 |---|---|
 | [e.g. Repository pattern for all DB access] | [how] |
 
@@ -108,7 +108,7 @@ the project is already set up.
 
 **Purpose**: cross-cutting work that only makes sense once the stories are in.
 
-- [ ] TXXX [docs, cleanup, or cross-story concerns — delete this phase if there is none]
+- [ ] TXXX [inspect and update every guideline affected by this feature; name exact paths]
 
 ## Execution Order
 

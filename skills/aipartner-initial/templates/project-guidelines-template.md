@@ -1,12 +1,15 @@
-# [PROJECT_NAME] — Project Standards
+## Project standards
 
 **Last updated**: [DATE]
 
-How this project is built. Written by `/aipartner-initial`, read by every other aipartner command
-before it does anything.
+How this project is built. Maintained in root `AGENTS.md` or existing root `CLAUDE.md`.
 
 <!--
-  FILL RULES (delete this comment in the generated file):
+  MERGE RULES (delete this comment in the generated file):
+  - Merge into the chosen root instruction file, preserving existing content and structure.
+  - Link to detailed guidance in its existing location instead of duplicating it.
+  - Ask about conflicting rules or documentation conventions before overwriting them.
+  - Record project standards, not temporary session decisions.
   - Record what the project ACTUALLY does, detected from code and config. Do not invent policy.
   - When something could not be detected and the user did not answer, put it under
     "Open questions" instead of guessing.
@@ -15,9 +18,9 @@ before it does anything.
   - Delete any section that has nothing real to say. Do not leave "N/A" rows behind.
 -->
 
-## Required reading
+### Required reading
 
-**MANDATORY: read these files before doing anything in this project.**
+**MANDATORY: read these files before working in this project.**
 
 <!--
   List only real guideline docs found in the repo. Never list agent system prompts
@@ -32,7 +35,7 @@ before it does anything.
 
 **Skipped as agent prompts** (not project guidance): [list, or delete this line]
 
-## Stack
+### Stack
 
 | Area | Choice | Notes |
 |---|---|---|
@@ -42,7 +45,7 @@ before it does anything.
 | Storage | [e.g. PostgreSQL via Prisma] | |
 | Package manager | [e.g. pnpm] | |
 
-## Layout
+### Layout
 
 ```text
 [real directory tree of the parts that matter — not every folder]
@@ -52,7 +55,7 @@ before it does anything.
 |---|---|
 | [src/modules/] | [one line] |
 
-## Conventions
+### Conventions
 
 <!-- Detected from the code, not from a style guide nobody follows. -->
 
@@ -63,7 +66,7 @@ before it does anything.
 - **Configuration**: [e.g. env vars validated at boot in config/env.ts]
 - **Commits**: [e.g. Conventional Commits — detected from git log]
 
-## Testing
+### Testing
 
 | Question | Answer |
 |---|---|
@@ -72,7 +75,7 @@ before it does anything.
 | What must be tested | [e.g. domain services and API contracts; UI is manual] |
 | Command | [e.g. pnpm test] |
 
-## Quality gates
+### Quality gates
 
 Commands that must pass before work is considered done:
 
@@ -82,14 +85,14 @@ Commands that must pass before work is considered done:
 | [Types] | [pnpm typecheck] |
 | [Tests] | [pnpm test] |
 
-## Constraints
+### Constraints
 
 <!-- Hard rules a contributor would get wrong without being told. Only real ones. -->
 
 - [e.g. No breaking changes to the public API without a version bump]
 - [e.g. Never query the DB outside a repository class]
 
-## Open questions
+### Open questions
 
 <!-- Undetected and unanswered. Not blockers — just what a future run should pick up. -->
 
