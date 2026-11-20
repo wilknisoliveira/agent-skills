@@ -13,12 +13,17 @@ $ARGUMENTS
 ```
 
 Use the request and session context to choose the flow below. Empty input means implement
-the current agreed feature or continue its implementation. Ask when the target or scope is
+the current agreed feature or continue its implementation. Invoking this command authorizes
+the initial implementation; after a delivery, follow the authorization gate in section 3
+even when the command is invoked again for a correction. Ask when the target or scope is
 ambiguous. Do not select an unrelated feature just because its folder was modified recently.
 
 ## Hard rules
 
 - **Never run a git write command.** No commit, push, pull, checkout, or branch.
+- **Investigate follow-ups before editing.** After a delivery, collect observations and
+  proposed changes across messages. Present findings and recommendations, then wait for
+  explicit authorization to implement the agreed corrections, as described in section 3.
 - **Keep to the agreed scope.** For spec-based work, Out of Scope in `spec.md` is binding
   unless the user explicitly requests a change. For direct work, the request and settled
   discussion define scope. Ask before unrelated changes required to proceed.
@@ -86,10 +91,26 @@ reinterpreting it. Never mark a failed or unverified task done.
 These instructions also apply to ordinary follow-up requests after this skill finishes;
 the user does not need a separate command or another invocation to request changes.
 
-Locate or reproduce the issue, then make the requested change proportionally. An explicit
-request for changed behavior authorizes that correction even when the original spec described
-the old behavior. Explain the difference without asking the user to authorize the same change
-again. Ask only when the intended result or scope is genuinely unclear.
+Treat follow-up observations as input for investigation, not permission to edit. For example,
+"Button X is badly positioned" calls for inspecting the layout, explaining the cause, and
+suggesting a correction. Investigate without changing project files or persistent logs.
+
+The user may describe the request across multiple messages. Keep the accumulated request in
+session context, present findings and suggested corrections, and ask whether they have
+finished describing the changes and authorize implementation. Wait for an explicit answer
+such as "I'm finished, you can implement." Silence, another observation, agreement with the
+diagnosis, or "I'm finished" alone does not authorize edits.
+
+If the user adds observations, incorporate them and update the diagnosis and proposal before
+implementing. Once explicit authorization covers the agreed scope, make those corrections
+without asking again for each edit. Authorization does not cover later additions to the
+scope; investigate and obtain authorization for them separately. After each delivery, reset
+this gate for the next follow-up request.
+
+An authorized correction may change behavior described in the original spec. Explain that
+difference and record it as described below; the old specification does not require a second
+authorization for the same agreed correction. Create or update correction logs only after
+implementation is authorized.
 
 For a feature with a spec, distinguish:
 
@@ -132,5 +153,16 @@ spec-based work complete only after documentation and validation are done; in di
 complete the session task list.
 
 Close with what changed, anything blocked, validation results, and how the user can verify
-it. Mention a stale spec requirement when a correction changed one. The user can keep
-requesting changes in the same conversation.
+it. Mention a stale spec requirement when a correction changed one.
+
+Include a copy-ready proposed commit message for the changes delivered in this implementation
+or correction, following Conventional Commits: `<type>[optional scope][!]: <description>`.
+Use a type that reflects the actual change, with `fix` corresponding to SemVer PATCH and
+`feat` to MINOR. Mark actual breaking changes with `!` or a `BREAKING CHANGE:` footer
+(MAJOR); other types do not imply a version bump on their own. Follow the project's language
+and scope conventions where compatible. Suggest the message only; do not commit, change
+versions, or include unrelated user changes in the proposal.
+
+Explain that the user can keep describing changes in the same conversation, across multiple
+messages. You will investigate, present conclusions and suggestions, and ask for explicit
+authorization before implementing the next corrections.
